@@ -16,6 +16,7 @@
     --fs-small: 1.3rem;
     --fs-normal: 1.5rem;
     --fs-large: 3.2rem;
+    --fs-large-desktop: 4.8rem;
 
     --fw-regular: 400;
     --fw-medium: 500;
@@ -33,13 +34,7 @@
 
 img {
     max-width: 100%;
-    max-height: 100%;
     display: block;
-}
-
-/*** utility classes ***/
-.flex {
-    display: flex;
 }
 
 /*** set-up ***/
@@ -53,7 +48,8 @@ body {
     justify-content: center;
     align-items: flex-start;
 
-    min-height: 100vh;
+    position: relative;
+    min-height: max-content;
 
     font-family: var(--ff-sans);
     font-size: var(--fs-normal);
@@ -81,7 +77,6 @@ body {
     background-image: url(./images/bg-pattern-top-mobile.svg), url(./images/bg-pattern-bottom-mobile.svg);
     background-position: left top, right bottom;
     background-repeat: no-repeat;
-    /* outline: 1px solid red; */
     border-bottom: 1px solid var(--clr-light-grayish-magenta);
 }
 
@@ -89,13 +84,12 @@ body {
     .section {
         grid-template-areas: 
         'header ratings'
-        'testimonials';
+        'testimonials testimonials';
+        gap: 0;
 
-        max-width: 144rem;
-        max-height: 208.6rem;
-        /* width: min(95%, 70rem); */
-        margin-left: auto;
-        margin-right: auto; 
+        width: 144rem;
+        margin: 0 auto; 
+        padding: 13rem 16.3rem 9.9rem 16.3rem;
 
         background-image: url(./images/bg-pattern-top-desktop.svg), url(./images/bg-pattern-bottom-desktop.svg);
         background-position: left top, right bottom;
@@ -124,6 +118,23 @@ body {
     letter-spacing: -0.5px;
 }
 
+@media (min-width: 50em) {
+    .section__header {
+        text-align: left;
+        margin-right: 22rem;
+    }
+
+    .section__header__heading {
+        font-size: var(--fs-large-desktop);
+        letter-spacing: -1.75px;
+    }
+
+    .section__header__text {
+        margin-top: 1.4rem;
+    }
+} 
+/* ---end of header--- */   
+
 /* ratings */
 .section__ratings {
     grid-area: ratings;
@@ -137,7 +148,6 @@ body {
 .section__ratings__rating-container {
     display: flex;
     flex-direction: column;
-    
     justify-content: center;
     align-items: center;
     position: relative;
@@ -150,7 +160,7 @@ body {
     margin-bottom: 1.5rem;
     display: flex;
     gap: 0.8rem;
-    
+    /* section star as repeated background image*/
     /* background-image: url(./images/icon-star.svg);
     background-position: center;
     background-repeat: space; */
@@ -163,19 +173,32 @@ body {
 }
 
 @media (min-width: 50em) {
+    .section__ratings {
+        justify-content: flex-start;
+        align-items: flex-end;
+        margin-top: 1.4rem;
+    }
+
     .section__ratings__rating-container {
         flex-direction: row;
+        justify-content: flex-start;
+        width: 44.5rem;
+        height: 5.6rem;
+    }
+
+    .section__ratings__stars {
+        margin-bottom: 0.2rem;
+        padding: 0 3.25rem;
     }
 
     .rating1 {
-        right: 2rem;
+        right: 9.5rem;
     }
 
-    .rating3 {
-        left: 2rem;
+    .rating2 {
+        right: 4.7rem;
     }
 }
-
 /* ---end of ratings--- */
 
 /* testimonials */
@@ -196,6 +219,7 @@ body {
     justify-content: center;
     align-items: flex-start;
     gap: 2.7rem;
+    position: relative;
     padding: 3.45rem 3.2rem 3.2rem 3.2rem;
     background-color: var(--clr-very-dark-magenta);
     border-radius: 0.85rem;
@@ -238,21 +262,28 @@ body {
 @media (min-width: 50em) {
     .section__testimonials {
         flex-direction: row;
+        justify-content: space-between;
+        gap: auto;
+        margin-top: 10rem;
     }
 
     .section__testimonials__testimonial-container {
-        flex-direction: row;
+        width: 35.1rem;
+        padding-bottom: 4rem
+    }
+
+    .section__testimonials__quoteblock {
+        padding-left: 0.5rem;
     }
 
     .testimonial1 {
-        bottom: 2rem;
+        bottom: 3.2rem;
     }
 
-    .testimonial3 {
-        top: 2rem;
+    .testimonial2 {
+        bottom: 1.6rem;
     }
 }
-
 /* ---end of testimonials--- */
 
 /*** footer ***/
@@ -266,4 +297,11 @@ body {
 
 .attribution a {
     color: hsl(228, 45%, 44%);
+}
+
+@media (min-width: 50em) {
+    .attribution {
+        position: absolute;
+        bottom: 0;
+    }
 }
