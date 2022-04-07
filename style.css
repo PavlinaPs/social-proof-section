@@ -70,7 +70,7 @@ body {
     gap: 3.78rem;
 
     width: 37.3rem;
-    margin: 1rem auto;
+    margin: 0 auto;
     padding: 8rem 2.3rem;
 
     background-color: var(--clr-white);
@@ -87,8 +87,7 @@ body {
         'testimonials testimonials';
         gap: 0;
 
-        width: 144rem;
-        margin: 0 auto; 
+        width: 144rem; 
         padding: 13rem 16.3rem 9.9rem 16.3rem;
 
         background-image: url(./images/bg-pattern-top-desktop.svg), url(./images/bg-pattern-bottom-desktop.svg);
